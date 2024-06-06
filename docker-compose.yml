@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  filedownload:
+    image: filedownload
+    build:
+      context: .
+      dockerfile: ./Dockerfile

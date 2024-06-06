@@ -63,39 +63,7 @@ class PrintButton extends StatelessWidget {
   //  page.graphics.drawString(
     
   //   "hello to PDF converter",PdfStandardFont(PdfFontFamily.helvetica,40),bounds: Rect.fromLTRB(200, 200, 10, 10));
-
-  final double margin = 40;
-    final double boxHeight = 100;
-    final double spacing = 20;
-
-    double currentY = margin;
-
-    data.forEach((key, value) {
-      final rect = Rect.fromLTWH(margin, currentY, page.getClientSize().width - margin * 2, boxHeight);
-      final text = '$key: $value';
-
-      page.graphics.drawRectangle(
-        bounds: rect,
-        brush: PdfSolidBrush(PdfColor(150, 150, 150)),
-      );
-      page.graphics.drawString(
-        text,
-        PdfStandardFont(PdfFontFamily.helvetica, 12),
-        brush: PdfSolidBrush(PdfColor(0, 0, 0)),
-        bounds: rect.deflate(spacing),
-        format: PdfStringFormat(alignment: PdfTextAlignment.left, lineAlignment: PdfVerticalAlignment.middle),
-      );
-       page2.graphics.drawString(
-        text,
-        PdfStandardFont(PdfFontFamily.helvetica, 12),
-        brush: PdfSolidBrush(PdfColor(0, 0, 0)),
-        bounds: rect.deflate(spacing),
-        format: PdfStringFormat(alignment: PdfTextAlignment.left, lineAlignment: PdfVerticalAlignment.middle),
-      );
-
-      currentY += boxHeight + spacing;
-    });
-
+    
 
     List<int> bytes  =await document.save();
     document.dispose();
